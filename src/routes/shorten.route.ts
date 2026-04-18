@@ -1,4 +1,4 @@
-import {createShortURLController, getShortURLController} from '../controllers/shorten.controller';
+import { createShortURLController, getShortURLController } from '../controllers/shorten.controller';
 import { Router } from 'express';
 
 const router = Router();

@@ -1,9 +1,7 @@
 import app from './app.js';
 import { startDB, initializeSchema } from './db/db.js';
 
-
 const port = process.env.PORT || 3000;
-
 
 async function startServer(): Promise<void> {
   try {
