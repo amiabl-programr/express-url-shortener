@@ -32,7 +32,8 @@ export async function getShortURLController(req: Request, res: Response) {
       return res.status(404).json({ message: 'URL not found' });
     }
 
-    return res.status(200).json(results);
+    const originalUrl = results[0].long_url;
+    return res.redirect(302, originalUrl);
   } catch (error) {
     return res.status(500).json({ message: 'Error retrieving URL', error });
   }
