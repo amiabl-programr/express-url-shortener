@@ -6,4 +6,3 @@ CREATE TABLE IF NOT EXISTS urls (
   expires_at TIMESTAMP NULL
 );
 
-ALTER SEQUENCE urls_id_seq RESTART WITH 1;
