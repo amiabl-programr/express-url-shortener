@@ -72,21 +72,13 @@ Error responses:
 - `400 Bad Request` - Missing `originalUrl` parameter
 - `500 Internal Server Error` - Server error
 
-### Get Shortened URL
+### Get Shortened URL (Redirect)
 **GET** `/api/shorten/:hashValue`
 
-Response (200 OK):
-```json
-[
-  {
-    "id": 1,
-    "short_url": "http://localhost:3000/abc123",
-    "long_url": "https://example.com/very/long/url",
-    "created_at": "2026-04-18T12:00:00.000Z",
-    "expires_at": null
-  }
-]
-```
+This endpoint retrieves a shortened URL and redirects to the original URL.
+
+Response (302 Found):
+- Redirects to the original long URL stored in the database
 
 Error responses:
 - `400 Bad Request` - Missing `hashValue` parameter
