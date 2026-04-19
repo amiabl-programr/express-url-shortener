@@ -1,4 +1,4 @@
-import { client } from '../db/db';
+import { client } from '../db/db.js';
 import { uuid } from 'uuidv4';
 
 export async function createShortURL(originalUrl: string): Promise<string> {

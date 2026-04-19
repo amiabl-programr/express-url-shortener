@@ -1,5 +1,5 @@
 import express, { Express } from 'express';
-import shortenRoute from './routes/shorten.route';
+import shortenRoute from './routes/shorten.route.js';
 import dotenv from 'dotenv';
 dotenv.config();
 

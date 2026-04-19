@@ -1,5 +1,5 @@
 import type { Request, Response } from 'express';
-import { createShortURL, getShortURLfromDb } from '../service/shorten.service';
+import { createShortURL, getShortURLfromDb } from '../service/shorten.service.js';
 
 export async function createShortURLController(req: Request, res: Response) {
   try {
