@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1>URL Shortener</h1>
+                <p class="subtitle">Make your long URLs short and memorable</p>
+            </div>
+
+            <form id="shortenForm" class="form">
+                <div class="form-group">
+                    <label for="longUrl" class="label">Enter Long URL</label>
+                    <input
+                        type="url"
+                        id="longUrl"
+                        class="input"
+                        placeholder="https://example.com/very/long/url/path"
+                        required
+                    />
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    <span>Shorten URL</span>
+                </button>
+            </form>
+
+            <div id="result" class="result hidden">
+                <div class="result-content">
+                    <p class="result-label">Your Shortened URL</p>
+                    <div class="result-display">
+                        <input
+                            type="text"
+                            id="shortUrl"
+                            class="result-input"
+                            readonly
+                        />
+                        <button type="button" id="copyBtn" class="btn btn-secondary">
+                            Copy
+                        </button>
+                    </div>
+                    <p id="originalUrl" class="original-url"></p>
+                </div>
+            </div>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Creating your short URL...</p>
+            </div>
+
+            <div id="error" class="error hidden">
+                <p id="errorMessage"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
