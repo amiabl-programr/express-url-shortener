@@ -14,6 +14,23 @@ const app: Express = express();
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../public')));
+
+const SLOW_REQUEST_MS = 1000;
+
+app.use((req, res, next) => {
+  const start = Date.now();
+  res.on('finish', () => {
+    const durationMs = Date.now() - start;
+    const logLine = `[REQ] ${req.method} ${req.originalUrl} -> ${res.statusCode} in ${durationMs}ms`;
+    if (durationMs >= SLOW_REQUEST_MS) {
+      console.warn(`[SLOW REQ] ${logLine}`);
+    } else {
+      console.log(logLine);
+    }
+  });
+  next();
+});
+
 app.use('/api', shortenRoute);
 
 app.use((_req, res, next) => {
