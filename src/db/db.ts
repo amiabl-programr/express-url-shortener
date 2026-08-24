@@ -23,6 +23,14 @@ const config = {
 
 export const client = new pg.Client(config);
 
+client.on('error', (error) => {
+  console.error('Database connection error:', {
+    message: error.message,
+    code: 'code' in error ? error.code : undefined,
+    timestamp: new Date().toISOString(),
+  });
+});
+
 export async function startDB() {
   try {
     await client.connect();

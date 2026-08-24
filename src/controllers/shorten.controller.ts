@@ -13,7 +13,8 @@ export async function createShortURLController(req: Request, res: Response) {
 
     return res.status(201).json({ message: 'URL shortened successfully', shortenedURL });
   } catch (error) {
-    return res.status(500).json({ message: 'Error creating shortened URL', error });
+    console.error('Error creating shortened URL:', error);
+    return res.status(500).json({ message: 'Internal server error' });
   }
 }
 
@@ -35,6 +36,7 @@ export async function getShortURLController(req: Request, res: Response) {
     const originalUrl = results[0].long_url;
     return res.redirect(302, originalUrl);
   } catch (error) {
-    return res.status(500).json({ message: 'Error retrieving URL', error });
+    console.error('Error retrieving URL:', error);
+    return res.status(500).json({ message: 'Internal server error' });
   }
 }
